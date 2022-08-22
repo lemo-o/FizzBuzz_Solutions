@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FizzBuzz.Resources
+﻿namespace FizzBuzz.Resources
 {
-    internal class Classic
+    public class Classic
     {
         private int _index;
-        Classic(int index)
-        {
-            _index = index;
-        }
+        /// <summary>
+        /// The "Classic" implementation of FizzBuzz, using If/else statements and a little math
+        /// </summary>
+        /// <param name="index">How far do you want to FizzBuzz?</param>
+        public Classic(int index) 
+            => _index = index;
+
         public void Solution()
         {
-            for (int i = 0; i < _index; i++)
+            for (int i = 1; i <= _index; i++)
             {
                 if (i % 5 == 0 && i % 3 == 0)
-                    Console.WriteLine("FizzBUzz");
-                else if (i % 5 == 0)
-                    Console.WriteLine("Buzz");
+                    Console.WriteLine("FizzBuzz");
                 else if (i % 3 == 0)
                     Console.WriteLine("Fizz");
+                else if (i % 5 == 0)
+                    Console.WriteLine("Buzz");
                 else
                     Console.WriteLine(i);
             }
