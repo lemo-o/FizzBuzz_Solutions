@@ -13,7 +13,7 @@ public class LINQSolutions
     }
 
     /// <summary>
-    /// it's alright
+    /// Single line implementation of LINQ. It's alright. 
     /// </summary>
     public void SingleLineSolution()
     {
