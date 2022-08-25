@@ -8,8 +8,8 @@ public class FuzzyNormalDistribution
 {
     private int _index;
     private int _startDex;
-    private List <int> _distribution;
-    FuzzyNormalDistribution(int startDex, int index)
+    private List <int> _distribution = new List<int>();
+    public FuzzyNormalDistribution(int startDex, int index)
     {
         _startDex = startDex;
         _index = index;
@@ -22,10 +22,6 @@ public class FuzzyNormalDistribution
     ///Currently, it just creates a string of numbers and FizzBuzzies
     public void EfficientBuzz()
     {
-
-        List<int> _data = new List<int>();
-
-
         int x = 3;
         int y = 5;
         int x1 = _startDex % x;
@@ -33,28 +29,41 @@ public class FuzzyNormalDistribution
         for (int i = _startDex; i <= _index; i++)
         {
             if (x1 == 0) //Fizz
-                _data.Add(i);
+                _distribution.Add(i);
             if (y1 == 0) //Buzz
-                _data.Add(i);
-            if (x1 != 0 && y1 != 0) //result += i.ToString();
-                _data.Add(i);
-            //result += ", ";
+                _distribution.Add(i);
+            if (x1 != 0 && y1 != 0) 
+                _distribution.Add(i);
             x1 = (x1 == x - 1 ? 0 : x1 + 1);
             y1 = (y1 == y - 1 ? 0 : y1 + 1);
         }
     }
 
-    private double StandardDeviation(IEnumerable<int> values)
+    public void Results() 
+    {
+        EfficientBuzz();
+        Console.WriteLine($"Standard Deviation of FizzBuzz: {StandardDeviation(_distribution)}\nSlope of Fizzbuzz: {Slope(_distribution)}");
+    }
+
+    #region MathFunctions
+    private double StandardDeviation(List<int> values)
     {
         double avg = values.Average();
         return Math.Sqrt(values.Average(v => Math.Pow(v - avg, 2)));
     }
 
-    private double Slope(IEnumerable<int> values)
+    private double Slope(List<int> values)
     {
-        for (int i = 0; i < values.Length(); i++)
-        {
-            
-        }
+        float numerator = values[values.Last()] - values[1];
+        float denominator = values.Last();
+
+
+        return numerator/denominator;
     }
+
+    #endregion
+
+
+
+
 }
