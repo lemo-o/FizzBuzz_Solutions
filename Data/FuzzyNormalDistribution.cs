@@ -116,9 +116,9 @@ public class FuzzyNormalDistribution
     /// <returns></returns>
     public double ReturnSuccessRate()
     {
-
         return _successRate / _index * 100;
     }
+
     #region MathFunctions
 
     private double StandardDeviation(List<int> values)

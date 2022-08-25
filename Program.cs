@@ -1,7 +1,7 @@
 ﻿using FizzBuzz.Data;
 using FizzBuzz.Resources;
 
-var N = 50000;
+var N = 10000;
 
 
 
@@ -15,7 +15,7 @@ var N = 50000;
 //SecondBuzz.Results();
 
 var newBuzz = new FuzzyNormalDistribution(1,N);
-for (int i = 0; i < 1000; i++)
+for (int i = 0; i < N; i++)
 {
     newBuzz.SlowerBuzz();
     newBuzz.Solution();
